@@ -1,0 +1,71 @@
+@startuml
+!theme plain
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam linetype ortho
+skinparam packageStyle rectangle
+
+title 社团划分算法NCSS参数敏感性实验框架
+
+package "输入数据" {
+  [用户-疾病标签数据]
+  [时间切片快照]
+}
+
+package "参数空间" {
+  [similarity_threshold\n0.1~0.5]
+  [damping_factor\n0.6~0.9]
+  [dependency_threshold\n0.4~0.7]
+  [min_community_ratio/abs]
+  [epsilon/max_iterations]
+}
+
+package "实验执行层" {
+  [单参数扫描]
+  [网格搜索]
+  [对比算法\nLouvain/LPA]
+}
+
+package "评估指标" {
+  [模块度 Q]
+  [NMI/稳定性]
+  [社团规模分布]
+  [运行耗时]
+  [业务指标\n点击率/采纳率]
+}
+
+package "输出产物" {
+  [最优参数组合]
+  [参数-指标曲线]
+  [实验报告JSON]
+  [上线策略建议]
+}
+
+[用户-疾病标签数据] --> [单参数扫描]
+[时间切片快照] --> [单参数扫描]
+
+[similarity_threshold\n0.1~0.5] --> [单参数扫描]
+[damping_factor\n0.6~0.9] --> [单参数扫描]
+[dependency_threshold\n0.4~0.7] --> [单参数扫描]
+[min_community_ratio/abs] --> [网格搜索]
+[epsilon/max_iterations] --> [网格搜索]
+
+[单参数扫描] --> [模块度 Q]
+[网格搜索] --> [NMI/稳定性]
+[对比算法\nLouvain/LPA] --> [运行耗时]
+[对比算法\nLouvain/LPA] --> [社团规模分布]
+[单参数扫描] --> [业务指标\n点击率/采纳率]
+
+[模块度 Q] --> [最优参数组合]
+[NMI/稳定性] --> [最优参数组合]
+[社团规模分布] --> [参数-指标曲线]
+[运行耗时] --> [实验报告JSON]
+[业务指标\n点击率/采纳率] --> [上线策略建议]
+
+note bottom
+END
+end note
+
+@enduml
+

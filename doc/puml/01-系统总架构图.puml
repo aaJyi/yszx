@@ -1,0 +1,56 @@
+@startuml
+!theme plain
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+title 医视智行 系统总架构图
+
+package "客户端层" {
+  [微信小程序\nfronted-mini] as mini
+  [管理后台\nbackend-PC] as admin
+}
+
+package "业务编排层" {
+  [Spring Boot业务后端\nbackend] as backend
+}
+
+package "智能体能力层" {
+  [RAG问答服务\nai-doctor-rag] as rag
+  [运动识别服务\nai-exercise-train] as sport
+  [三餐识别服务\nfood-train] as food
+  [社团划分引擎\nclub-division NCSS] as ncss
+  [热点爬虫服务\nbackend/scripts/social] as crawler
+}
+
+package "数据层" {
+  database "MySQL" as mysql
+  database "Chroma向量库" as chroma
+  folder "文件存储/模型仓" as storage
+}
+
+mini --> backend : 业务请求/上传图像/查询结果
+admin --> backend : 管理接口/数据治理
+
+backend --> rag : 问答编排/向量重建
+backend --> sport : 运动识别与计次
+backend --> food : 营养识别
+backend --> ncss : 社群划分/推荐
+backend --> crawler : 热点抓取触发
+
+rag --> chroma : 检索/更新
+rag --> mysql : 语料与配置
+sport --> storage : 模型读取
+food --> storage : 模型读取
+
+backend --> mysql : 业务数据读写
+crawler --> mysql : 资讯入库
+ncss --> mysql : 用户特征/社团结果
+
+note bottom
+end note
+
+@enduml
+

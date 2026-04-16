@@ -1,0 +1,40 @@
+@startuml
+!theme plain
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam linetype ortho
+
+title NCSS社团划分算法流程图
+
+start
+:输入用户-疾病集合;
+:构建用户相似度图\n(Jaccard阈值);
+:计算共同邻居矩阵;
+:迭代计算节点中心度 PRcen;
+:按约束选择种子节点;
+
+repeat
+  :对每个社团提取边缘候选节点;
+  :计算节点-社团结构关系强度 S(i,C);
+  if (S(i,C) > 0 ?) then (是)
+    :吸纳最优节点;
+    if (节点已在其他社团?) then (是)
+      :比较依赖度 D(node,new)\n与 D(node,old);
+      if (D(new)>D(old) 且 >阈值?) then (是)
+        :执行社团迁移;
+      endif
+    endif
+  endif
+repeat while (仍有节点可变更?) is (是)
+
+:过滤过小社团并并入最大社团;
+:输出社团划分结果与推荐列表;
+stop
+
+note right
+End
+end note
+
+@enduml
+

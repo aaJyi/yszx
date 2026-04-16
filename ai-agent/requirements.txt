@@ -1,0 +1,33 @@
+# Medical-AI 项目依赖包清单
+# Python 版本要求: Python 3.8+
+
+# Web 框架
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+
+# 数据验证和配置
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# HTTP 客户端
+requests>=2.31.0
+
+# OpenAI SDK（兼容 Ollama /v1及其他 OpenAI 式接口）
+openai>=1.0.0
+
+# 修复 LLM 输出的残缺/混用引号 JSON
+json-repair>=0.30.0
+
+# PDF 处理
+PyMuPDF>=1.23.0
+
+# 入模图片缩放（视觉模型降显存）
+Pillow>=10.0.0
+
+# MySQL 连接（本机健康档案数据库）
+pymysql>=1.1.0
+
+# RAG 相关（可选，如果使用文档检索功能）
+# sentence-transformers>=2.2.0
+# faiss-cpu>=1.7.4
+# numpy>=1.24.0

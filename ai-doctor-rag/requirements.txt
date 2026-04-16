@@ -1,0 +1,35 @@
+# RAG AI Doctor - Dependencies
+# Python >= 3.8
+
+# Web framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+
+# Hugging Face and model tools
+transformers==4.39.3
+torch>=2.0.0,<2.5
+datasets>=2.16.0
+sentence-transformers==2.6.1
+scikit-learn>=1.3.0
+peft==0.9.0
+
+# Vector database (multi-machine shared index)
+chromadb>=0.4.0
+# BGE-m3 嵌入（中文 index_ch 建索引与 chinese_bge 检索）
+FlagEmbedding>=1.2.0
+# LangChain（可选，用于扩展 RAG 链）
+langchain>=0.1.0
+langchain-community>=0.0.20
+
+# Cloud LLM API (OpenAI-compatible, e.g. DeepSeek)
+openai>=1.0.0
+
+# SentencePiece (required by Helsinki-NLP/opus-mt-en-zh)
+sentencepiece>=0.1.99
+
+# Utilities
+numpy>=1.24.0
+pandas>=2.0.0
+requests>=2.28.0
+# index_ch JSON -> MySQL rag_kb_*（scripts/import_index_ch_to_db.py）
+pymysql>=1.1.0

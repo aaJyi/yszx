@@ -1,0 +1,9 @@
+{
+  "description": "与 manifest.json 中 mp-weixin.setting 对齐；关闭多线程框架可避免工具链下 define / public library 异常",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "useMultiFrameRuntime": false
+  }
+}

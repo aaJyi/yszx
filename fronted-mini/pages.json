@@ -1,0 +1,212 @@
+{
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^uni-(.*)": "@/uni_modules/uni-$1/components/uni-$1/uni-$1.vue"
+		}
+	},
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "医视智行",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/ai-chat/index",
+			"style": {
+				"navigationBarTitleText": "AI对话",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/exercise/index",
+			"style": {
+				"navigationBarTitleText": "运动",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/social/index",
+			"style": {
+				"navigationBarTitleText": "病友社交",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/social/webview",
+			"style": {
+				"navigationBarTitleText": "资讯详情",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/social/peer-chat",
+			"style": {
+				"navigationBarTitleText": "病友交流",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/profile/user-info",
+			"style": {
+				"navigationBarTitleText": "用户信息",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/health-archive/list",
+			"style": {
+				"navigationBarTitleText": "我的健康档案",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/health-archive/detail",
+			"style": {
+				"navigationBarTitleText": "健康档案详情",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/health-archive/generate",
+			"style": {
+				"navigationBarTitleText": "生成健康档案",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/health-archive/raw-data-list",
+			"style": {
+				"navigationBarTitleText": "健康报告",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/family/list",
+			"style": {
+				"navigationBarTitleText": "家人管理",
+				"navigationBarTextStyle": "white",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/family/create-archive",
+			"style": {
+				"navigationBarTitleText": "为家人生成健康档案",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/consultation/index",
+			"style": {
+				"navigationBarTitleText": "在线问诊",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/consultation/chat",
+			"style": {
+				"navigationBarTitleText": "AI在线问诊",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/chronic-disease/index",
+			"style": {
+				"navigationBarTitleText": "我的慢病",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/emotion-detection/index",
+			"style": {
+				"navigationBarTitleText": "情绪检测",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/home-chat/index",
+			"style": {
+				"navigationBarTitleText": "AI健康助手",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/ai-consultation/index",
+			"style": {
+				"navigationBarTitleText": "AI问诊",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/ai-consultation/chat",
+			"style": {
+				"navigationBarTitleText": "AI医生",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/psychological-consultation/chat",
+			"style": {
+				"navigationBarTitleText": "心理咨询",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/happy-activity/index",
+			"style": {
+				"navigationBarTitleText": "快乐活动",
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/settings/index",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"navigationBarTextStyle": "black"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "医视智行",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#f5f5f5"
+	},
+	"uniIdRouter": {}
+}

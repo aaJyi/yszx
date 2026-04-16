@@ -1,0 +1,54 @@
+@startuml
+!theme plain
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam linetype ortho
+
+title 医视智行 生产部署拓扑图（建议）
+
+node "客户端网络" {
+  [微信小程序]
+  [管理后台浏览器]
+}
+
+cloud "公网/校园网" as net
+
+node "应用服务器A" {
+  [Nginx/API网关]
+  [Spring Boot backend]
+  [Vue后台静态站点]
+}
+
+node "AI服务器B" {
+  [ai-doctor-rag]
+  [ai-exercise-train]
+  [food-train]
+}
+
+node "数据服务器C" {
+  database "MySQL"
+  database "Chroma"
+  folder "模型与日志存储"
+}
+
+[微信小程序] --> net
+[管理后台浏览器] --> net
+net --> [Nginx/API网关]
+[Nginx/API网关] --> [Spring Boot backend]
+[Spring Boot backend] --> [ai-doctor-rag]
+[Spring Boot backend] --> [ai-exercise-train]
+[Spring Boot backend] --> [food-train]
+[Spring Boot backend] --> [MySQL]
+[ai-doctor-rag] --> [Chroma]
+[ai-doctor-rag] --> [MySQL]
+[ai-exercise-train] --> [模型与日志存储]
+[food-train] --> [模型与日志存储]
+
+note right
+建议导出：180mm x 120mm
+用于说明书第7章技术文档（部署部分）
+end note
+
+@enduml
+

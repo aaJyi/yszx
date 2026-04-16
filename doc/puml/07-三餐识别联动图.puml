@@ -1,0 +1,32 @@
+@startuml
+!theme plain
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam linetype ortho
+
+title 三餐识别与健康建议联动
+
+actor 用户 as U
+participant 小程序 as Mini
+participant 后端 as B
+participant 三餐识别服务 as Food
+database MySQL as DB
+participant 健康建议智能体 as H
+
+U -> Mini: 上传餐食图片
+Mini -> B: 提交识别请求
+B -> Food: /predict
+Food --> B: 营养估计结果\n(热量/营养素)
+B -> DB: 记录饮食特征
+B -> H: 触发建议计算
+H --> B: 饮食干预建议
+B --> Mini: 返回识别结果+建议
+Mini --> U: 展示饮食反馈
+
+note bottom
+END
+end note
+
+@enduml
+

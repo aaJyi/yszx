@@ -1,0 +1,40 @@
+# 运动识别项目配置文件
+
+# 用户默认信息 (可在运行时修改)
+user_profile:
+  weight_kg: 70      # 体重(公斤)
+  height_cm: 170     # 身高(厘米)
+  age: 30
+  gender: "male"     # male / female
+
+# 各类运动的 MET 值 (代谢当量, 用于卡路里计算)
+# 与 data.yaml 的 names 对应: high_jumps, jumping_jacks, lunges, squats
+exercise_met_values:
+  high_jumps: 8.0     # 高抬腿
+  jumping_jacks: 8.0  # 开合跳
+  lunges: 4.0         # 弓箭步
+  squats: 3.8         # 深蹲
+  default: 4.0
+
+# 姿态关键点配置 (用于次数计数)
+rep_count_configs:
+  squats:             # 深蹲: 髋-膝-踝
+    kpts: [12, 14, 16]
+    up_angle: 160
+    down_angle: 90
+  lunges:             # 弓箭步: 髋-膝-踝
+    kpts: [12, 14, 16]
+    up_angle: 160
+    down_angle: 90
+  jumping_jacks:      # 开合跳: 肩-髋距离
+    kpts: [6, 12]
+    up_angle: 120
+    down_angle: 60
+  high_jumps:         # 高抬腿: 髋-膝-踝，放宽阈值便于触发
+    kpts: [12, 14, 16]
+    up_angle: 150
+    down_angle: 75
+  default:
+    kpts: [6, 8, 10]
+    up_angle: 145
+    down_angle: 90

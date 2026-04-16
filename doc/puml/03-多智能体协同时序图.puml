@@ -1,0 +1,47 @@
+@startuml
+!theme plain
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam linetype ortho
+
+title 医视智行——基于机器视觉的多智能体医疗问诊康复辅助诊疗系统
+
+
+actor 用户 as U
+participant 小程序 as Mini
+participant 业务后端 as B
+participant RAG问答 as R
+participant 运动识别 as S
+participant 三餐识别 as F
+participant NCSS引擎 as N
+database MySQL as DB
+
+U -> Mini: 提交问题/上传图片
+Mini -> B: 请求统一业务接口
+
+par 医学问答
+  B -> R: /chat 或 /chat/stream
+  R -> DB: 读取知识/配置
+  R --> B: 回答+参考证据
+else 运动识别
+  B -> S: /recognize 或 /recognize-video
+  S --> B: 类型+次数+时长
+else 三餐识别
+  B -> F: /predict
+  F --> B: 营养估计结果
+end
+
+B -> N: 社团划分/用户推荐
+N -> DB: 读取用户特征并写回结果
+N --> B: 社团ID/推荐对象
+B -> DB: 写入健康建议与日志
+B --> Mini: 返回聚合结果
+Mini --> U: 展示建议与风险提示
+
+note bottom
+END
+end note
+
+@enduml
+

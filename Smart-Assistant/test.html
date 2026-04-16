@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart- Assistant 测试页</title>
+    <style>
+      body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; margin: 24px; }
+      .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+      input[type="text"] { width: min(860px, 95vw); padding: 10px 12px; border: 1px solid #ccc; border-radius: 8px; }
+      button { padding: 10px 12px; border: 1px solid #222; background: #222; color: #fff; border-radius: 8px; cursor: pointer; }
+      button.secondary { background: #fff; color: #222; }
+      pre { background: #0b1020; color: #e6e9f2; padding: 12px; border-radius: 10px; overflow: auto; max-height: 60vh; }
+      .hint { color: #555; font-size: 13px; margin-top: 8px; }
+    </style>
+  </head>
+  <body>
+    <h2>Smart-Assistant（后端多智能体）测试</h2>
+    <div class="row">
+      <label>API：</label>
+      <input id="apiBase" type="text" value="http://127.0.0.1:8000" />
+    </div>
+    <div style="height:12px"></div>
+    <div class="row">
+      <input id="prompt" type="text" value="帮我写一篇关于AI药物设计的综述并生成PPT" />
+      <button id="btnRun">创建任务</button>
+      <button id="btnPoll" class="secondary" disabled>轮询状态</button>
+      <button id="btnStop" class="secondary" disabled>停止轮询</button>
+    </div>
+    <div class="hint">
+      提示：先启动 API（uvicorn）与 worker（python -m app.worker），并确保 MySQL/RabbitMQ/Ollama 正常。
+    </div>
+    <h3>输出</h3>
+    <pre id="out">{}</pre>
+
+    <script>
+      const out = document.getElementById("out");
+      const apiBaseEl = document.getElementById("apiBase");
+      const promptEl = document.getElementById("prompt");
+      const btnRun = document.getElementById("btnRun");
+      const btnPoll = document.getElementById("btnPoll");
+      const btnStop = document.getElementById("btnStop");
+
+      let runId = null;
+      let timer = null;
+
+      function show(obj) {
+        out.textContent = JSON.stringify(obj, null, 2);
+      }
+
+      async function createRun() {
+        const apiBase = apiBaseEl.value.replace(/\/+$/, "");
+        const prompt = promptEl.value.trim();
+        const res = await fetch(`${apiBase}/api/runs`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt }),
+        });
+        const data = await res.json();
+        runId = data.run_id;
+        show(data);
+        btnPoll.disabled = false;
+        btnStop.disabled = false;
+      }
+
+      async function poll() {
+        if (!runId) return;
+        const apiBase = apiBaseEl.value.replace(/\/+$/, "");
+        const res = await fetch(`${apiBase}/api/runs/${runId}`);
+        const data = await res.json();
+        show(data);
+      }
+
+      btnRun.addEventListener("click", async () => {
+        try { await createRun(); } catch (e) { show({ error: String(e) }); }
+      });
+
+      btnPoll.addEventListener("click", async () => {
+        if (timer) return;
+        await poll();
+        timer = setInterval(poll, 1500);
+        btnPoll.disabled = true;
+      });
+
+      btnStop.addEventListener("click", () => {
+        if (timer) clearInterval(timer);
+        timer = null;
+        btnPoll.disabled = false;
+      });
+    </script>
+  </body>
+</html>
+

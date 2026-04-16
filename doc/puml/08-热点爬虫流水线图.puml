@@ -1,0 +1,31 @@
+@startuml
+!theme plain
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam linetype ortho
+
+title 热点疾病爬虫数据流水线
+
+start
+:读取疾病关键词\n(来自用户推测疾病/热点词库);
+:多源抓取资讯\n(RSS/API/网页源);
+:正文抽取与清洗;
+:去重与可信度评分;
+
+if (可信度达标?) then (是)
+  :结构化入库(MySQL);
+  :同步推荐与RAG可用内容;
+else (否)
+  :写入低可信队列/丢弃;
+endif
+
+:输出抓取统计报告;
+stop
+
+note right
+END
+end note
+
+@enduml
+

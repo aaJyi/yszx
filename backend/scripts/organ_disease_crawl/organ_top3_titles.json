@@ -1,0 +1,75 @@
+{
+  "_comment": "每个器官 3 个常见关联疾病（英文维基条目名），便于教学与知识库扩充；临床以指南为准。",
+  "brain": {
+    "organ_zh": "脑",
+    "titles": ["Stroke", "Epilepsy", "Brain tumor"]
+  },
+  "heart": {
+    "organ_zh": "心脏",
+    "titles": ["Coronary artery disease", "Heart failure", "Myocardial infarction"]
+  },
+  "lungs": {
+    "organ_zh": "肺",
+    "titles": ["Pneumonia", "Chronic obstructive pulmonary disease", "Asthma"]
+  },
+  "intestines": {
+    "organ_zh": "肠道",
+    "titles": ["Crohn's disease", "Ulcerative colitis", "Irritable bowel syndrome"]
+  },
+  "liver": {
+    "organ_zh": "肝脏",
+    "titles": ["Cirrhosis", "Hepatitis", "Non-alcoholic fatty liver disease"]
+  },
+  "lymph_nodes": {
+    "organ_zh": "淋巴结",
+    "titles": ["Lymphoma", "Lymphadenitis", "Hodgkin lymphoma"]
+  },
+  "pancreas": {
+    "organ_zh": "胰腺",
+    "titles": ["Pancreatitis", "Pancreatic cancer", "Diabetes mellitus"]
+  },
+  "kidneys": {
+    "organ_zh": "肾脏",
+    "titles": ["Chronic kidney disease", "Kidney stone", "Glomerulonephritis"]
+  },
+  "skeleton": {
+    "organ_zh": "骨骼系统",
+    "titles": ["Osteoporosis", "Osteoarthritis", "Bone fracture"]
+  },
+  "muscles": {
+    "organ_zh": "肌肉",
+    "titles": ["Muscular dystrophy", "Myositis", "Rhabdomyolysis"]
+  },
+  "pharynx": {
+    "organ_zh": "咽",
+    "titles": ["Pharyngitis", "Tonsillitis", "Streptococcal pharyngitis"]
+  },
+  "spleen": {
+    "organ_zh": "脾脏",
+    "titles": ["Splenomegaly", "Ruptured spleen", "Hypersplenism"]
+  },
+  "bone_marrow": {
+    "organ_zh": "骨髓",
+    "titles": ["Leukemia", "Anemia", "Multiple myeloma"]
+  },
+  "gallbladder": {
+    "organ_zh": "胆囊",
+    "titles": ["Cholecystitis", "Gallstone", "Cholangitis"]
+  },
+  "veins": {
+    "organ_zh": "静脉",
+    "titles": ["Deep vein thrombosis", "Varicose veins", "Phlebitis"]
+  },
+  "stomach": {
+    "organ_zh": "胃",
+    "titles": ["Gastritis", "Peptic ulcer disease", "Stomach cancer"]
+  },
+  "arteries": {
+    "organ_zh": "动脉",
+    "titles": ["Atherosclerosis", "Aortic aneurysm", "Peripheral artery disease"]
+  },
+  "larynx": {
+    "organ_zh": "喉",
+    "titles": ["Laryngitis", "Vocal fold nodule", "Laryngeal cancer"]
+  }
+}

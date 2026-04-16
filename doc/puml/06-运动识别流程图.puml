@@ -1,0 +1,37 @@
+@startuml
+!theme plain
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam linetype ortho
+
+title 运动识别与计次流程
+
+start
+:接收图片/视频 + sessionId;
+:加载检测模型 YOLO;
+if (启用姿态计次?) then (是)
+  :加载姿态模型;
+endif
+
+:执行运动类型识别;
+if (识别成功?) then (是)
+  :更新会话状态\n(current_exercise);
+  if (启用姿态计次?) then (是)
+    :提取关键点并计算角度;
+    :更新 reps 次数;
+  endif
+  :累计 seconds 时长;
+  :输出 exerciseStats;
+else (否)
+  :返回空识别/保持会话状态;
+endif
+
+stop
+
+note right
+END
+end note
+
+@enduml
+

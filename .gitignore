@@ -1,0 +1,186 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+*.egg
+MANIFEST
+__pypackages__/
+.pytype/
+.pyre/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.ipynb_checkpoints/
+
+# 虚拟环境（各服务独立 venv，勿提交；含 .venv-ai-agent、.venv-rag-cn 等）
+.env/
+.venv/
+.venv*/
+venv/
+env/
+ENV/
+virtualenv/
+.virtualenv/
+.conda/
+conda-env/
+
+# uv / PDM 等工具本地标记
+.pdm-python
+
+# 环境变量与密钥（切勿提交到 Git）
+.env
+.env.*
+!.env.example
+!.env.*.example
+*id_rsa*
+*.pem
+*.ppk
+*.key
+!*.key.example
+
+# IDE（业务代码外的本地配置；备份目录勿提交）
+.idea/
+.idea.backup/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 构建
+build/
+dist/
+out/
+target/
+unpackage/
+
+# 大文件
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+*.mp4
+*.mp4z
+*.avi
+*.mov
+*.mkv
+*.exe
+*.bin
+
+# AI / 数据（体积大或可再生成；只保留业务代码与小型配置）
+*.pt
+*.pth
+*.h5
+*.ckpt
+*.safetensors
+*.onnx
+*.pb
+*.tflite
+*.gguf
+*.ggml
+*.npy
+*.npz
+*.parquet
+*.feather
+*.arrow
+*.ipc
+*.pkl
+*.pickle
+*.joblib
+*.faiss
+*.index
+data/
+dataset/
+datasets/
+raw/
+processed/
+samples/
+exports/
+embeddings/
+vector_store/
+chroma/
+.chroma/
+.qdrant/
+*.sqlite3
+models/
+checkpoints/
+wandb/
+mlruns/
+lightning_logs/
+tensorboard/
+.cache/
+huggingface/
+hf_cache/
+*.tfevents
+*.tfevents.*
+logs/
+tmp/
+temp/
+
+# food-train：Nutrition5k 原始/处理后数据与训练输出（勿提交）
+food-train/nutrition5k_data/
+food-train/processed_nutrition5k/
+food-train/training_outputs/
+food-train/nutrition_*.png
+food-train/training_*.png
+**/nutrition5k_data/
+
+# doc / docs：演示稿、PDF、配图（注意两个目录名不同）
+doc/**/*.pdf
+doc/**/*.pptx
+doc/**/*.ppt
+doc/**/*.jpg
+doc/**/*.jpeg
+doc/**/*.png
+doc/**/*.webp
+docs/**/*.pdf
+docs/**/*.pptx
+docs/**/*.ppt
+docs/**/*.jpg
+docs/**/*.jpeg
+docs/**/*.png
+docs/**/*.webp
+
+# club-division：算法说明 PDF、导出示意图（业务保留 .py / requirements）
+club-division/**/*.pdf
+club-division/**/*.png
+
+# food-train：本地试跑用图片（脚本与 requirements 仍提交）
+food-train/*.jpg
+food-train/*.jpeg
+food-train/image_samples.png
+food-train/nutrient_analysis.png
+
+# 子项目根目录误生成的无扩展名文件（常见于重定向 pip 输出等）
+ai-doctor-rag/0.10.0
+ai-doctor-rag/name
+ai-exercise-train/26.0.1
+
+# HBuilderX 本机启动配置
+**/.hbuilderx/
+
+# 训练/实验输出（体积大、可再生成）
+ai-exercise-train/docs/
+
+# 华为等敏感配置（按需保留本地，勿推仓库）
+**/agconnect-services.json

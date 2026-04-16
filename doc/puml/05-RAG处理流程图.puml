@@ -1,0 +1,33 @@
+@startuml
+!theme plain
+skinparam dpi 180
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam linetype ortho
+
+title RAG问答处理流程
+
+start
+:接收 query + history;
+:构建检索查询\n(融合历史上下文);
+:向量检索 Top-K\n(Chroma/BGE-m3);
+:计算 best_similarity;
+
+if (best_similarity < 阈值?) then (是)
+  :进入 Direct LLM 模式;
+  :生成通用/低风险回答;
+else (否)
+  :拼接 references + prompt;
+  :调用模型生成回答\n(Ollama/DeepSeek/本地模型);
+endif
+
+:附加 references 与免责声明;
+:返回 answer / references / used_llm;
+stop
+
+note right
+END
+end note
+
+@enduml
+

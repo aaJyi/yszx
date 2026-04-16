@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    hikari:
+      connection-init-sql: SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci
+
+food:
+  train:
+    predict-url: http://127.0.0.1:5001/predict
+
+dashboard:
+  dev-assets:
+    exercise-results-image: D:/happyLife/ai-exercise-train/docs/results.png
+    food-results-image: D:/happyLife/food-train/training_results.png
+    chat-prompt-file: D:/happyLife/ai-doctor-rag/prompts/default.txt
+    emotion-prompt-file: D:/happyLife/ai-doctor-rag/prompts/default_en.txt
+
+health:
+  news:
+    python-service:
+      enabled: true
+      base-url: http://127.0.0.1:8095
+  knowledge:
+    crawler-enabled: true
+    crawl-initial-delay-ms: 10000
+    crawl-interval-ms: 180000
+    pause-ms-between-keywords: 1500
+    max-per-keyword: 8
+    feed-limit-matched: 100
+    feed-limit-general: 30
+
+aliyun:
+  oss:
+    endpoint: "https://oss-cn-beijing.aliyuncs.com"
+    access-key-id: "LTAI5tSgmKTRzBmsuntDBNcN"
+    access-key-secret: "rLNnMs4CKC9TdkQlqE19gjPkp8FJlK"
+    bucket-name: "medical-vision-intelligent-travel"
+    public-url-prefix: "https://medical-vision-intelligent-travel.oss-cn-beijing.aliyuncs.com"

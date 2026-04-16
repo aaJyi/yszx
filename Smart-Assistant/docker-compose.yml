@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: smart_assistant_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: smart_assistant
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: sa_pass
+      TZ: Asia/Shanghai
+    ports:
+      - "3307:3306"
+    volumes:
+      - sa_mysql_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    command: ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: smart_assistant_rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: sa
+      RABBITMQ_DEFAULT_PASS: sa_pass
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    volumes:
+      - sa_rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  sa_mysql_data:
+  sa_rabbitmq_data:
+
