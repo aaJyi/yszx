@@ -30,8 +30,8 @@ health:
 
 aliyun:
   oss:
-    endpoint: "https://oss-cn-beijing.aliyuncs.com"
-    access-key-id: "LTAI5tSgmKTRzBmsuntDBNcN"
-    access-key-secret: "rLNnMs4CKC9TdkQlqE19gjPkp8FJlK"
-    bucket-name: "medical-vision-intelligent-travel"
-    public-url-prefix: "https://medical-vision-intelligent-travel.oss-cn-beijing.aliyuncs.com"
+    endpoint: ""
+    access-key-id: ""
+    access-key-secret: ""
+    bucket-name: ""
+    public-url-prefix: ""
